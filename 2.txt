@@ -1,0 +1,33 @@
+SELECT City,
+       SUM(Amount) AS TotalExpenditure
+  FROM credit_cards
+ GROUP BY City
+ ORDER BY TotalExpenditure DESC
+ LIMIT 1;
+ 
+-- ii) Lowest total expenditure
+
+SELECT City,
+       SUM(Amount) AS TotalExpenditure
+  FROM credit_cards
+ GROUP BY City
+ ORDER BY TotalExpenditure ASC
+ LIMIT 1;
+ 
+-- iii) Highest average expenditure
+
+SELECT City,
+       AVG(Amount) AS AverageExpenditure
+  FROM credit_cards
+ GROUP BY City
+ ORDER BY AverageExpenditure DESC
+ LIMIT 1;
+ 
+-- iv) Lowest average expenditure
+
+SELECT City,
+       AVG(Amount) AS AverageExpenditure
+  FROM credit_cards
+ GROUP BY City
+ ORDER BY AverageExpenditure ASC
+ LIMIT 1;

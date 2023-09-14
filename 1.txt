@@ -1,0 +1,2 @@
+SELECT sum(Amount) 
+  FROM credit_cards;

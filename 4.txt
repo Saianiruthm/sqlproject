@@ -1,0 +1,92 @@
+-- Card Type Comparison
+SELECT
+    CardType,
+    SUM(Amount) AS Total_Spending
+FROM
+    Credit_Cards
+GROUP BY
+    CardType;
+
+-- Gender-Based Analysis
+SELECT
+    Gender,
+    SUM(Amount) AS Total_Spending
+FROM
+    Credit_Cards
+GROUP BY
+    Gender;
+
+    
+-- Top Expenditure Categories
+SELECT
+    ExpType,
+    SUM(Amount) AS Total_Spending
+FROM
+    Credit_Cards
+GROUP BY
+    ExpType
+ORDER BY
+    Total_Spending DESC
+LIMIT 10;
+
+-- Customer Segmentation
+SELECT
+    City,
+    CardType,
+    SUM(Amount) AS Total_Spending
+FROM
+    Credit_Cards
+GROUP BY
+    City,
+    CardType;
+
+-- Customer Loyalty
+SELECT
+    id,
+    COUNT(*) AS Transaction_Count,
+    SUM(Amount) AS Total_Spending
+FROM
+    Credit_Cards
+GROUP BY
+    id
+HAVING
+    Transaction_Count >= 10; -- Assuming 10 transactions indicate loyalty
+
+-- Refunds and Chargebacks
+SELECT
+    ExpType,
+    COUNT(*) AS Chargeback_Count
+FROM
+    Credit_Cards
+WHERE
+    ExpType = 'Chargeback' OR ExpType = 'Refund'
+GROUP BY
+    ExpType;
+
+-- Outliers Detection
+SELECT
+    *,
+    (Amount - AVG(Amount) OVER ()) / STDDEV(Amount) OVER () AS Z_Score
+FROM
+    Credit_Cards
+HAVING
+    ABS(Z_Score) > 3; -- You can adjust the threshold for outliers
+
+-- Demographic Trends
+SELECT
+    AgeGroup,
+    AVG(Amount) AS Avg_Spending
+FROM
+    Credit_Cards
+GROUP BY
+    AgeGroup;
+
+-- Geographical Trends
+SELECT
+    City,
+    SUM(Amount) AS Total_Spending
+FROM
+    Credit_Cards
+GROUP BY
+    City;
+

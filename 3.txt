@@ -1,0 +1,7 @@
+SELECT ExpType,
+       COUNT( * ) AS Count
+  FROM credit_cards
+ WHERE CardType = 'Platinum'
+ GROUP BY ExpType
+ ORDER BY Count DESC
+ LIMIT 1;
