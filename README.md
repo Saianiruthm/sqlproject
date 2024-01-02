@@ -1,5 +1,10 @@
 # SQL Task: Credit Cards Dataset
 
+## About the Project
+
+### Medium Article
+I've written a detailed Medium article outlining this project. [Read the article here](https://medium.com/@sai2804aniruth/analysing-credit-card-transactions-with-sql-unveiling-spending-patterns-8aa988b8dc38).
+
 ## Dataset Information
 
 **Name:** `sql_task_credit_cards.sqlite`
